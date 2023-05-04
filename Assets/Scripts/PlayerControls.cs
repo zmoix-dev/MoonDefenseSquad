@@ -4,19 +4,20 @@ using UnityEngine;
 
 public class PlayerControls : MonoBehaviour
 {
-    [SerializeField] float moveFactor = 15f;
-    [SerializeField] float clampRangeX = 14f;
-    [SerializeField] float clampRangeYTop = 14f;
-    [SerializeField] float clampRangeYBot = -2f;
-    [SerializeField] float positionPitchFactor = -5f;
-    [SerializeField] float positionRollFactor = -2f;
-    [SerializeField] float positionYawFactor = -3.5f;
-    [SerializeField] float controlPitchFactor = -5f;
-    [SerializeField] float controlRollFactor = 5f;
-    [SerializeField] float controlYawFactor = 3.5f;
+    [Header("General Setup Settings")]
 
-    [SerializeField] ParticleSystem leftwingLaser;
-    [SerializeField] ParticleSystem rightwingLaser;
+    [Tooltip("How fast ship moves in response to player input.")] [SerializeField] float moveFactor = 15f;
+    [Tooltip("How far the ship can move left/right inside of the PlayerRig.")] [SerializeField] float clampRangeX = 14f;
+    [Tooltip("How far the ship can move up inside of the PlayerRig.")] [SerializeField] float clampRangeYTop = 14f;
+    [Tooltip("How far the ship can move down inside of the PlayerRig.")] [SerializeField] float clampRangeYBot = -2f;
+    [Tooltip("Ratio of ship pitch to vertical position within PlayerRig.")]  [SerializeField] float positionPitchFactor = -5f;
+    [Tooltip("Ratio of ship roll to horizontal position within PlayerRig.")] [SerializeField] float positionRollFactor = -2f;
+    [Tooltip("Ratio of ship yaw to horizontal position within PlayerRig.")] [SerializeField] float positionYawFactor = -3.5f;
+    [Tooltip("Ratio of ship pitch to player vertical input within PlayerRig.")] [SerializeField] float controlPitchFactor = -5f;
+    [Tooltip("Ratio of ship roll to player horizontal input within PlayerRig.")] [SerializeField] float controlRollFactor = 5f;
+    [Tooltip("Ratio of ship yaw to player horizontal input within PlayerRig.")] [SerializeField] float controlYawFactor = 3.5f;
+
+    [Tooltip("Ship's lasers.")] [SerializeField] ParticleSystem[] lasers;
 
     void Update()
     {
@@ -59,21 +60,19 @@ public class PlayerControls : MonoBehaviour
 
     private void ProcessShoot() {
         bool isFiring = Input.GetKey(KeyCode.Space);
-        if (isFiring) {
-            Debug.Log("Firing");
-            if (!leftwingLaser.isEmitting) {
-                leftwingLaser.Play();
-            }
-            if (!rightwingLaser.isEmitting) {
-                rightwingLaser.Play();
-            }
-        } else {
-            if (leftwingLaser.isEmitting) {
-                leftwingLaser.Stop();
-            }
-            if (rightwingLaser.isEmitting) {
-                rightwingLaser.Stop();
+
+        foreach (ParticleSystem laser in lasers) {
+            if (isFiring) {
+                if (!laser.isEmitting) {
+                    laser.Play();
+                }
+            } else {
+                if (laser.isEmitting) {
+                    laser.Stop();
+                }
             }
         }
+
+        
     }
 }
