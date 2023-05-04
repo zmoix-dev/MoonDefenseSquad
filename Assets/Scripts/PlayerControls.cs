@@ -15,12 +15,16 @@ public class PlayerControls : MonoBehaviour
     [SerializeField] float controlRollFactor = 5f;
     [SerializeField] float controlYawFactor = 3.5f;
 
+    [SerializeField] ParticleSystem leftwingLaser;
+    [SerializeField] ParticleSystem rightwingLaser;
+
     void Update()
     {
         float horizThrow = Input.GetAxis("Horizontal");
         float vertThrow = Input.GetAxis("Vertical");
         ProcessTranslation(horizThrow, vertThrow);
         ProcessRotation(horizThrow, vertThrow);
+        ProcessShoot();
     }
 
     private void ProcessTranslation(float horizThrow, float vertThrow)
@@ -51,5 +55,25 @@ public class PlayerControls : MonoBehaviour
         float yaw = yawFromPosition + yawFromControl;
 
         transform.localRotation = Quaternion.Euler(pitch, yaw, roll);
+    }
+
+    private void ProcessShoot() {
+        bool isFiring = Input.GetKey(KeyCode.Space);
+        if (isFiring) {
+            Debug.Log("Firing");
+            if (!leftwingLaser.isEmitting) {
+                leftwingLaser.Play();
+            }
+            if (!rightwingLaser.isEmitting) {
+                rightwingLaser.Play();
+            }
+        } else {
+            if (leftwingLaser.isEmitting) {
+                leftwingLaser.Stop();
+            }
+            if (rightwingLaser.isEmitting) {
+                rightwingLaser.Stop();
+            }
+        }
     }
 }
