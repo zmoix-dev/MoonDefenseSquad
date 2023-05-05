@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class CollisionHandler : MonoBehaviour
 {
-    [SerializeField] ParticleSystem explosionSystem;
+    [SerializeField] GameObject destroyVfx;
     [SerializeField] float invulnPostDamageTaken = 3f;
     [SerializeField] int lives = 3;
     [SerializeField] ParticleSystem[] lasers;
@@ -36,7 +36,7 @@ public class CollisionHandler : MonoBehaviour
                     laser.Stop();
                 }
                 body.useGravity = true;
-                explosionSystem.Play();
+                Instantiate(destroyVfx, transform.position, Quaternion.identity);
                 Invoke("reloadLevel", 2f);
             }
         }

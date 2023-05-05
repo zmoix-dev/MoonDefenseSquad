@@ -142,3 +142,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 255645060afe31f40a08661a388aa07b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroyVfx: {fileID: 3200836327345539238, guid: d2c744d78799a47488ef7b2f880fbb22, type: 3}
+  hitVfx: {fileID: 3200836327345539238, guid: 349af66c1bf49934ba51a4f17bd535f9, type: 3}
+  parent: {fileID: 0}
+  scoreOnHit: 10
+  scoreOnDefeat: 20
+  hitPoints: 3
