@@ -1,23 +1,21 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
     [SerializeField] GameObject destroyVfx;
     [SerializeField] GameObject hitVfx;
-    [SerializeField] Transform xfxParent;
     [SerializeField] int scoreOnHit = 10;
     [SerializeField] int scoreOnDefeat = 20;
     [SerializeField] int hitPoints = 3;
 
     ScoreTracker scoreTracker;
+    GameObject vfxParentGameObject;
 
     void Start()
     {
         scoreTracker = FindObjectOfType<ScoreTracker>();
         AddRigidbody();
+        vfxParentGameObject = GameObject.FindWithTag("VFXParent");
     }
 
     private void AddRigidbody()
@@ -36,15 +34,18 @@ public class Enemy : MonoBehaviour
         if (hitPoints <= 0) {
             Destroy(gameObject);
             scoreTracker.UpdateScore(scoreOnDefeat);
-            GameObject vfx = Instantiate(destroyVfx, transform.position, Quaternion.identity);
-            vfx.transform.parent = parent;
+            InstantiateVfx(destroyVfx);
         }
     }
 
     void ProcessHit(GameObject other) {
         hitPoints--;
         scoreTracker.UpdateScore(scoreOnHit);
-        GameObject vfx = Instantiate(hitVfx, transform.position, Quaternion.identity);
-        vfx.transform.parent = parent;
+        InstantiateVfx(hitVfx);
+    }
+
+    void InstantiateVfx(GameObject vfx) {
+        GameObject obj = Instantiate(vfx, transform.position, Quaternion.identity);
+        obj.transform.parent = vfxParentGameObject.transform;
     }
 }
