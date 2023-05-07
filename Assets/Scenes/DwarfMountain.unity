@@ -1615,6 +1615,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 975160254}
+  - component: {fileID: 975160256}
+  - component: {fileID: 975160255}
   m_Layer: 0
   m_Name: EnemyWave5
   m_TagString: Untagged
@@ -1637,7 +1639,47 @@ Transform:
   - {fileID: 1271033038}
   m_Father: {fileID: 250157282}
   m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 37.15945, y: 0.7346967, z: 0.4922605}
+--- !u!95 &975160255
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 975160253}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!320 &975160256
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 975160253}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: 6c81379bbb730074cb8968f82fb4a622, type: 2}
+  m_InitialState: 1
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: 1777913259996729563, guid: 6c81379bbb730074cb8968f82fb4a622, type: 2}
+    value: {fileID: 975160255}
+  m_ExposedReferences:
+    m_References: []
 --- !u!4 &983662159 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4124738985744308, guid: b7d21f1436f2e9943bcc6a2ade057053, type: 3}
@@ -1810,11 +1852,32 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &1271033037 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1521998382196196835, guid: 06ed9cc9295e6f64987389c219ccb84c, type: 3}
+  m_PrefabInstance: {fileID: 2006946964}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1271033038 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2541262390588143600, guid: 06ed9cc9295e6f64987389c219ccb84c, type: 3}
   m_PrefabInstance: {fileID: 2006946964}
   m_PrefabAsset: {fileID: 0}
+--- !u!54 &1271033046
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1271033037}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
 --- !u!1001 &1274034400
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1954,11 +2017,13 @@ PlayableDirector:
     value: {fileID: 1248292741}
   m_ExposedReferences:
     m_References:
+    - 7ddcc942adc26f64d83b821b73179e7f: {fileID: 975160253}
     - 5a483038cdfb5444d8ffe9f1b0af782a: {fileID: 895938622}
     - ead2f5f0276f28c4897d49aba5bd130d: {fileID: 591059706}
     - 0ecad883bd940df41acf8459900a8bb8: {fileID: 179765976}
     - ed6bf69fd7c16bb46a94ef47b04a4b63: {fileID: 546296026}
     - 011ad28c2541ac74a91bb4b278ac6a89: {fileID: 0}
+    - a9d1970d6803f8147873fd31015c9aee: {fileID: 975160253}
     - 6c51c8fb210bcf544b8c67ec46ea236f: {fileID: 0}
 --- !u!4 &1493303678
 Transform:
@@ -2112,10 +2177,6 @@ PrefabInstance:
     - target: {fileID: 2541262390588143600, guid: 06ed9cc9295e6f64987389c219ccb84c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5754237060055300892, guid: 06ed9cc9295e6f64987389c219ccb84c, type: 3}
-      propertyPath: bombs.Array.size
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06ed9cc9295e6f64987389c219ccb84c, type: 3}
@@ -2486,17 +2547,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 975160254}
     m_Modifications:
-    - target: {fileID: 1425333695345192973, guid: 06ed9cc9295e6f64987389c219ccb84c, type: 3}
-      propertyPath: m_TagString
-      value: F3_BombSpawn
-      objectReference: {fileID: 0}
     - target: {fileID: 1521998382196196835, guid: 06ed9cc9295e6f64987389c219ccb84c, type: 3}
       propertyPath: m_Name
       value: F3_Red Variant
-      objectReference: {fileID: 0}
-    - target: {fileID: 1521998382196196835, guid: 06ed9cc9295e6f64987389c219ccb84c, type: 3}
-      propertyPath: m_TagString
-      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 2541262390588143600, guid: 06ed9cc9295e6f64987389c219ccb84c, type: 3}
       propertyPath: m_RootOrder
