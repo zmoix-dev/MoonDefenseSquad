@@ -40,7 +40,11 @@ public class CollisionHandler : MonoBehaviour
                 Invoke("reloadLevel", 2f);
             }
         }
-        
+    }
+
+    void OnParticleCollision(GameObject other) {
+        Debug.Log("You got hit");
+        lives--;
     }
 
     void reloadLevel() {
