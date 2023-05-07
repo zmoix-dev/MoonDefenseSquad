@@ -21,7 +21,10 @@ public class Enemy : MonoBehaviour
     private void AddRigidbody()
     {
         Rigidbody body = gameObject.AddComponent<Rigidbody>();
-        body.useGravity = false;
+        // Spikeballs use a pre-installed rigid body that does use gravity
+        if (body) {
+            body.useGravity = false;
+        }
     }
 
     void OnParticleCollision(GameObject other) {

@@ -43,7 +43,6 @@ public class CollisionHandler : MonoBehaviour
     }
 
     void OnParticleCollision(GameObject other) {
-        Debug.Log("You got hit");
         lives--;
     }
 

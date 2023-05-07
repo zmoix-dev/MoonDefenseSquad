@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 5770372075506093768}
   - component: {fileID: 5563901604290210820}
   - component: {fileID: 1491301759398354433}
+  - component: {fileID: 4553293848821450733}
   m_Layer: 0
   m_Name: Spikeball_Small
   m_TagString: Enemy
@@ -146,3 +147,16 @@ MonoBehaviour:
   scoreOnHit: 0
   scoreOnDefeat: 5
   hitPoints: 1
+--- !u!114 &4553293848821450733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5c9a8d45dfee8e4db9faa823063cf2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boom: {fileID: 3200836327345539238, guid: f15fca61a5c399640a146e0927de08f4, type: 3}
