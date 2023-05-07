@@ -232,7 +232,7 @@ MonoBehaviour:
   bombs:
   - {fileID: 100000, guid: 97ef08cc7411beb4b833c8331d89702f, type: 3}
   - {fileID: 100000, guid: 8f445961f3af4734eab6b615aef5f1e5, type: 3}
-  bombReload: 2.5
+  bombReload: 0.5
   bombSpawn: {fileID: 1425333695345192973}
 --- !u!4 &2541262390588143600 stripped
 Transform:
