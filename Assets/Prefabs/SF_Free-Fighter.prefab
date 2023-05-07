@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2730061692396022613}
   - component: {fileID: 2730061692397152661}
   - component: {fileID: 1801470302}
+  - component: {fileID: 3322952706697268517}
   m_Layer: 0
   m_Name: SF_Free-Fighter
   m_TagString: Untagged
@@ -101,3 +102,16 @@ MonoBehaviour:
   scoreOnHit: 10
   scoreOnDefeat: 20
   hitPoints: 3
+--- !u!65 &3322952706697268517
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2730061692394895189}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 12.64715, y: 7.477126, z: 15.637812}
+  m_Center: {x: -0.18668404, y: 0, z: -0.7564361}

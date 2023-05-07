@@ -92,6 +92,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7300040428481837487}
+  - component: {fileID: 3365436457279116581}
+  - component: {fileID: 358552770647903448}
   m_Layer: 0
   m_Name: UAV Trident
   m_TagString: Untagged
@@ -115,3 +117,33 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -182.909, z: 0}
+--- !u!65 &3365436457279116581
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7300040428481623489}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.5254955, y: 0.14469762, z: 2.1486034}
+  m_Center: {x: 0.016787289, y: -0.011319785, z: -0.024315327}
+--- !u!114 &358552770647903448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7300040428481623489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 255645060afe31f40a08661a388aa07b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyVfx: {fileID: 3200836327345539238, guid: d2c744d78799a47488ef7b2f880fbb22, type: 3}
+  hitVfx: {fileID: 3200836327345539238, guid: 349af66c1bf49934ba51a4f17bd535f9, type: 3}
+  scoreOnHit: 10
+  scoreOnDefeat: 20
+  hitPoints: 1
